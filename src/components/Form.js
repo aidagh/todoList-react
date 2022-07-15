@@ -1,15 +1,22 @@
 import React from "react";
-import { MdOutlineLibraryAdd } from "react-icons/md";
 const Form = ({ setInputText, todos, setTodos, inputText }) => {
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };
+  //   const listHandler = (e) => {
+  //     e.preventDefault();
+  //   };
   const submitTodoHandler = (e) => {
     e.preventDefault();
     if (inputText !== "") {
+      console.log({ ...todos });
       setTodos([
         ...todos,
-        { text: inputText, completed: false, id: Math.random() * 1000 },
+        {
+          text: inputText,
+          completed: false,
+          id: Math.floor(Math.random() * 1000),
+        },
       ]);
     }
     setInputText("");
@@ -21,21 +28,15 @@ const Form = ({ setInputText, todos, setTodos, inputText }) => {
         onChange={inputTextHandler}
         type="text"
         className="todo-input"
+        maxLength={20}
       />
 
       <button onClick={submitTodoHandler} className="todo-button" type="submit">
         Add a New item
       </button>
-      {/* <button className="addList-btn" type="submit">
+      {/* <button className="todo-button" onClick={listHandler}>
         Add a New List
       </button> */}
-      {/* <div className="select">
-        <select className="filter-todo" name="todos">
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="uncompleted">Uncompleted</option>
-        </select>
-      </div> */}
     </form>
   );
 };

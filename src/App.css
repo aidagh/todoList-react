@@ -9,19 +9,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgb(98, 146, 229);
 }
 
 .todo-app {
   display: grid;
   gap: 3rem;
-  background-color: aquamarine;
   margin: 3rem;
   padding: 1rem;
+}
+
+.todo-container {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.75rem;
 }
 .todo-input {
   padding: 0.5rem 1rem;
   margin: 0.5rem;
   border-radius: 0.75rem;
+  margin: 0rem 3.25rem;
 }
 
 .todo-button {
@@ -32,14 +38,21 @@ body {
 
 .todo {
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   border: 1px solid black;
   border-radius: 0.75rem;
   margin: 0.5rem;
+  background-color: #fff;
+}
+.todo-item {
+  padding: 1rem;
+  min-width: 10rem;
 }
 .todo-list {
+  display: grid;
+  grid-template-rows: repeat(auto, 1fr);
   list-style: none;
-  padding: 1rem;
+  margin: 1rem;
 }
 .icons {
   display: flex;
@@ -47,4 +60,18 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #b2afaf;
+}
+.trash {
+  color: red;
+}
+.check {
+  color: green;
+}
+.edit {
+  color: rgb(5, 43, 97);
 }
